@@ -39,15 +39,15 @@ export function saveCartVideos() {
 }
 
 
-export function addToCart(id) {
-  const matchingVideo = videos.find((video) => video.id === Number(id));
-  
-  const alreadyInCart = cartVideos.find((video) => video.id === Number(id));
-
-  if (!alreadyInCart && matchingVideo) {
-    cartVideos.push(matchingVideo);
-    saveToStorage();
-  } 
+export function addToCart(videoId) {
+  // Check if already added
+  if (!cartVideos.some(video => video.id === videoId)) {
+    const videoToAdd = videos.find(video => video.id === videoId);
+    if (videoToAdd) {
+      cartVideos.push(videoToAdd);
+      saveCartVideos();
+    }
+  }
 }
 
 
