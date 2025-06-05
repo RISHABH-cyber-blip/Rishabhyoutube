@@ -47,9 +47,7 @@ export function addToCart(id) {
   if (!alreadyInCart && matchingVideo) {
     cartVideos.push(matchingVideo);
     saveToStorage();
-  } else {
-    alert("Video already in cart");
-  }
+  } 
 }
 
 
