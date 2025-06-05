@@ -72,10 +72,15 @@ document.addEventListener('click', () => {
 document.querySelectorAll('.js-watch-later').forEach((button) => {
   button.addEventListener('click', (event) => {
     event.stopPropagation(); // Prevent triggering thumbnail click
-    const videoId = button.dataset.videoId;
+    const videoId = parseInt(button.dataset.videoId);
     addToCart(videoId);
+
+    // Change button text to "Added"
+    button.textContent = "Added";
+    button.disabled = true; // optionally disable button to avoid duplicate adds
   });
 });
+
 
 document.querySelector('.youtube-app-container')
   .addEventListener('click', (event) => {
