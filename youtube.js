@@ -74,7 +74,6 @@ document.querySelectorAll('.js-watch-later').forEach((button) => {
     event.stopPropagation(); // Prevent triggering thumbnail click
     const videoId = button.dataset.videoId;
     addToCart(videoId);
-    alert('Video added to Watch Later');
   });
 });
 
